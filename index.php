@@ -92,3 +92,19 @@ if(isset($_GET['action']) && $_GET['action'] == 'login') {
 
 
 
+if(isset($_GET['action']) && $_GET['action'] == 'repos') {
+  // Find all repos created by the authenticated user
+  $repos = apiRequest($apiURLBase.'user/repos?'.http_build_query([
+    'sort' => 'created', 'direction' => 'desc'
+  ]));
+ 
+  echo '<ul>';
+  foreach($repos as $repo)
+    echo '<li><a href="' . $repo['html_url'] . '">'
+      . $repo['name'] . '</a></li>';
+  echo '</ul>';
+}
+
+
+
+
