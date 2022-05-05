@@ -1,4 +1,4 @@
-php -S localhost:8000
+php --S localhost:8000
 
 
 function apiRequest($url, $post=FALSE, $headers=array()) {
